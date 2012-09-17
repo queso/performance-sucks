@@ -268,7 +268,7 @@ a:focus {
 }
 
 #title h1 {
-    font-size: 190px;
+    font-size: 100px;
     
     -webkit-transform: translateZ(50px);
     -moz-transform:    translateZ(50px);
@@ -277,8 +277,14 @@ a:focus {
     transform:         translateZ(50px);
 }
 
+#title h2 {
+  color: indianred;
+}
+
 #title .footnote {
-    font-size: 32px;
+    font-size: 28px;
+    float: right;
+    padding-top: 40px;
 }
 
 /*
