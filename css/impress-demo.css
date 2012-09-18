@@ -294,7 +294,7 @@ a:focus {
 */
 .intro img {float: left;}
 .intro .intro-data {float: right; width: 480px;}
-.intro .intro-data ul { font-size: 26px;}
+ul { font-size: 26px;}
 
 pre {background: black; width: 1020px;}
 code { color: white; font-size: 11px; font-family: "Menlo";}
