@@ -165,7 +165,7 @@ a:focus {
 
 .step {
     position: relative;
-    width: 900px;
+    width: 1100px;
     padding: 40px;
     margin: 20px auto;
 
@@ -290,9 +290,14 @@ a:focus {
 /*
     Second step is nothing special, just a text with a link, so it doesn't need
     any special styling.
-    
     Let's move to 'big thoughts' with centered text and custom font sizes.
 */
+.intro img {float: left;}
+.intro .intro-data {float: right; width: 480px;}
+.intro .intro-data ul { font-size: 26px;}
+
+pre {background: black; width: 1020px;}
+code { color: white; font-size: 11px; font-family: "Menlo";}
 #big {
     width: 600px;
     text-align: center;

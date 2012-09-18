@@ -19,31 +19,66 @@
 <body class="impress-not-supported">
 
   <div id="impress">
-    <div id="title" class="step" data-x="-1500" data-y="-1500" >
+    <div id="title" class="step" data-x="-1500" data-y="-1500" data-rotate="180">
         <h1>Performance sucks!</h1>
         <h2>Make it better.</h2>
         <span class="footnote">by Michael Guterl and Josh Owens</span>
     </div>
 
     <div id="intro-michael" class="step intro" data-x="0" data-y="-1500">
-      <h2>Michael Guterl</h2>
       <img src="images/michael.jpeg" />
-      <ul>
-        <li>Twitter &amp; Github - @mguterl</li>
-      </ul>
+      <div class="intro-data">
+        <h2>Michael Guterl</h2>
+        <ul>
+          <li>Twitter &amp; Github - @mguterl</li>
+        </ul>
+      </div>
     </div>
 
     <div id="intro-josh" class="step intro" data-x="1500" data-y="-1500">
-      <h2>Josh Owens</h2>
       <img src="images/josh.jpeg" />
-      <ul>
-        <li>Twitter - @joshowens</li>
-        <li>Github - queso</li>
-      <ul>
+      <div class="intro-data">
+        <h2>Josh Owens</h2>
+        <ul>
+          <li>Twitter - @joshowens</li>
+          <li>Github - queso</li>
+        <ul>
+      </div>
     </div>
 
-    <div id="video" class="step" data-x="0" data-y="0">
-      <iframe src="http://player.vimeo.com/video/49582000" width="1024" height="768" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    <div id="video" class="step" data-x="500" data-y="-500" data-rotate="90" data-scale="1">
+      <video width="1020" height="676" controls="controls">
+        <source src="performance sucks.mov" type="video/mp4" />
+      </video>
+    </div>
+
+    <div id="mysql" class="step" data-x="0" data-y="0">
+      <h2>Optimizing Mysql</h2>
+    </div>
+
+    <div id="mysql-query" class="step" data-x="1000" data-y="1000" data-z="-3000" data-rotate="200">
+      <pre><code>
+        Episode Load (0.4ms)  SELECT `episodes`.* FROM `episodes` WHERE `episodes`.`slug` = 'test' LIMIT 1
+        Episode Load (1.7ms)  SELECT `episodes`.* FROM `episodes` WHERE (number <> 2) ORDER BY number DESC LIMIT 1
+      </code></pre>
+    </div>
+
+    <div id="mysql-explain" class="step" data-x="500" data-y="500" data-z="-3000">
+      <pre><code>
+        mysql> EXPLAIN SELECT `episodes`.* FROM `episodes` WHERE `episodes`.`slug` = 'test' LIMIT 1;
+        +----+-------------+----------+-------+------------------------+------------------------+---------+-------+------+-------+
+        | id | select_type | table    | type  | possible_keys          | key                    | key_len | ref   | rows | Extra |
+        +----+-------------+----------+-------+------------------------+------------------------+---------+-------+------+-------+
+        |  1 | SIMPLE      | episodes | const | index_episodes_on_slug | index_episodes_on_slug | 768     | const |    1 |       |
+        +----+-------------+----------+-------+------------------------+------------------------+---------+-------+------+-------+
+
+        mysql> EXPLAIN SELECT `episodes`.* FROM `episodes` WHERE (number <> 2) ORDER BY number DESC LIMIT 1;
+        +----+-------------+----------+-------+--------------------------+--------------------------+---------+------+------+-------------+
+        | id | select_type | table    | type  | possible_keys            | key                      | key_len | ref  | rows | Extra       |
+        +----+-------------+----------+-------+--------------------------+--------------------------+---------+------+------+-------------+
+        |  1 | SIMPLE      | episodes | range | index_episodes_on_number | index_episodes_on_number | 5       | NULL |    3 | Using where |
+        +----+-------------+----------+-------+--------------------------+--------------------------+---------+------+------+-------------+
+      </code></pre>
     </div>
 
     <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
