@@ -139,6 +139,11 @@ h2 {
     And then we hide the message, when support is detected in the browser.
 */
 
+.footnote {
+  font-size: 14px;
+  float: right;
+}
+
 .fallback-message {
     font-family: sans-serif;
     line-height: 1.3;
