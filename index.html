@@ -109,7 +109,29 @@
       <h2>We shaved off 75ms or 12%</h2>
     </div>
 
-    <div id="caching" class="step" data-x="0" data-y="1000" data-z="-1000">
+    <div id="summary-tables" class="step" data-x="2500" data-y="1300" data-z="-2000">
+      <h2>Summary Tables</h2>
+      <img src="images/job_posting_summary_report.jpg" />
+    </div>
+
+    <div id="summary-table-structure" class="step" data-x="2500" data-y="1800"  data-z="-2000" data-rotate="180">
+      <pre><code>
+        id	int(11)
+        organization_id	int(11)
+        month	int(11)
+        year	int(11)
+        job_id	int(11)
+        view_count	int(11)
+        application_count	int(11)
+        date	date
+        title	varchar(255)
+        internal_id	varchar(255)
+        posted_at	datetime
+        expires_at	datetime
+      </code></pre>
+    </div>
+
+    <div id="caching" class="step" data-x="-200" data-y="1000" data-z="-1000">
       <h2>Caching</h2>
       <ul>
         <li>Traditional Rails Caching</li>
@@ -179,8 +201,17 @@
       </video>
     </div>
 
+    <div id="extra-tools" class="step" data-x="-2800" data-y="-800">
+      <h2>Extra Tools</h2>
+      <ul>
+        <li>https://github.com/ruckus/active-record-query-trace</li>
+        <li>https://github.com/flyerhzm/bullet</li>
+      </ul>
+    </div>
+
     <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
     </div>
+
   </div>
 
 <script src="js/impress.js"></script>
