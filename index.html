@@ -100,6 +100,28 @@
       <h2>We shaved off 75ms or 12%</h2>
     </div>
 
+    <div id="summary-tables" class="step">
+      <h2>Summary Tables</h2>
+      <img src="images/job_posting_summary_report.jpg" />
+    </div>
+
+    <div id="summary-table-structure" class="step">
+      <pre><code>
+        id	int(11)
+        organization_id	int(11)
+        month	int(11)
+        year	int(11)
+        job_id	int(11)
+        view_count	int(11)
+        application_count	int(11)
+        date	date
+        title	varchar(255)
+        internal_id	varchar(255)
+        posted_at	datetime
+        expires_at	datetime
+      </code></pre>
+    </div>
+
     <div id="caching" class="step" data-x="0" data-y="1000" data-z="-1000">
       <h2>Caching</h2>
       <ul>
@@ -108,11 +130,46 @@
       </ul>
     </div>
 
+    <div id="page-caching" class="step">
+      <h2>Page Caching</h2>
+      <pre><code>
+        class HomeController < ApplicationController
+          caches_page :index
+
+          def index
+            # Content that does not need to hit the Rails stack.
+          end
+        end
+      </code></pre>
+    </div>
+
+    <div id="action-caching" class="step">
+      <h2>Action Caching</h2>
+      <pre><code>
+        class HomeController < ApplicationController
+          before_filter :login_required
+          caches_action :show
+
+          def show
+            # Content that needs to go through the Rails stack.
+          end
+        end
+      </code></pre>
+    </div>
+
+    <div id="fragment-caching" class="step">
+      <h2>Fragment Caching</h2>
+      <pre><code>
+        <% cache object.cache_key -%>
+          <%= expensive_call_to_generate_some_html %>
+        <% end -%>
+      </code></pre>
+    </div>
+
     <div id="geocoder-caching" class="step" data-x="-200" data-y="1500" data-z="-3000">
       <h2>Caching external calls</h2>
       <img src="images/external-cache.png" />
     </div>
-
 
     <div id="fakeit" class="step" data-x="-500" data-y="-500">
       <h2>Fake it, til ya make it</h2>
@@ -126,6 +183,23 @@
         <source src="performance sucks - facets.mov" type="video/mp4">
       </video>
     </div>
+
+    <div id="cons-caching" class="step">
+      <h2>Cons of Caching</h2>
+      <ul>
+        <li>Cache Invalidation</li>
+        <li>Cold Cache</li>
+      </ul>
+    </div>
+
+    <div id="extra-tools" class="step">
+      <h2>Extra Tools</h2>
+      <ul>
+        <li>https://github.com/ruckus/active-record-query-trace</li>
+        <li>https://github.com/flyerhzm/bullet</li>
+      </ul>
+    </div>
+
     <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
     </div>
   </div>
