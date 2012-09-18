@@ -56,7 +56,7 @@
       <h2>Optimizing Mysql</h2>
     </div>
 
-    <div id="mysql-query" class="step" data-x="1000" data-y="1000" data-z="-3000" data-rotate="200">
+    <div id="mysql-query" class="step" data-x="1000" data-y="1000" data-z="-2000" data-rotate="200">
       <h2>We're off to see the wizard!</h2>
       <pre><code>
         Episode Load (0.4ms)  SELECT `episodes`.* FROM `episodes` WHERE `episodes`.`slug` = 'test' LIMIT 1
@@ -64,7 +64,7 @@
       </code></pre>
     </div>
 
-    <div id="mysql-explain" class="step" data-x="500" data-y="500" data-z="-3000">
+    <div id="mysql-explain" class="step" data-x="500" data-y="500" data-z="-2000">
       <h2>Lucy, splain yourself!</h2>
       <pre><code>
         EXPLAIN SELECT `episodes`.* FROM `episodes` WHERE `episodes`.`slug` = 'test' LIMIT 1;
@@ -83,7 +83,7 @@
       </code></pre>
     </div>
 
-    <div id="include" class="step" data-x="2000" data-y="500" data-z="-3000">
+    <div id="include" class="step" data-x="2000" data-y="500" data-z="-2000">
       <h2>Using the include, Luke.</h2>
       <pre><code>
         SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`id` = ?
@@ -96,11 +96,11 @@
       </code></pre>
     </div>
 
-    <div id="shaving" class="step" data-x="2000" data-y="800" data-z="-3000">
+    <div id="shaving" class="step" data-x="2000" data-y="800" data-z="-2000">
       <h2>We shaved off 75ms or 12%</h2>
     </div>
 
-    <div id="caching" class="step" data-x="500" data-y="500" data-z="-1000">
+    <div id="caching" class="step" data-x="0" data-y="1000" data-z="-1000">
       <h2>Caching</h2>
       <ul>
         <li>Traditional Rails Caching</li>
@@ -108,6 +108,10 @@
       </ul>
     </div>
 
+    <div id="geocoder-caching" class="step" data-x="-200" data-y="1500" data-z="-3000">
+      <h2>Caching external calls</h2>
+      <img src="images/external-cache.png" />
+    </div>
     <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
     </div>
   </div>
